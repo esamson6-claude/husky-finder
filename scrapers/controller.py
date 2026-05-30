@@ -20,6 +20,7 @@ from curl_cffi import requests as cr
 
 from .common import (
     Listing,
+    ScraperFailure,
     extract_engine,
     extract_engine_time,
     first_hours,
@@ -58,6 +59,11 @@ def _fetch_via_scrapingbee(url: str) -> str | None:
         except requests.RequestException as e:
             last_err = str(e)
             continue
+        # 401 = credits exhausted / bad API key. Hard fail.
+        if r.status_code == 401:
+            raise ScraperFailure(
+                "ScrapingBee returned 401 — credits exhausted or invalid key"
+            )
         if r.status_code == 200 and not _INTERSTITIAL_RE.search(r.text):
             return r.text
         last_err = f"status {r.status_code}: {r.text[:150]}"

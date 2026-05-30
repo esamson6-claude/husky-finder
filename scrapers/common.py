@@ -39,6 +39,14 @@ UA = (
 )
 
 
+class ScraperFailure(Exception):
+    """Raised when a source is unreachable (e.g. paid API credits exhausted).
+
+    scrape.py catches this and preserves the previous CSV rows for the
+    affected (source, make) pair, so a temporary outage doesn't wipe data.
+    """
+
+
 @dataclass
 class Listing:
     source: str
