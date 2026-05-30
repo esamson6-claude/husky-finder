@@ -1,8 +1,9 @@
-"""Render data/listings.csv as a single self-contained HTML page with thumbnails."""
+"""Render data/listings.csv as a single self-contained HTML page with sort/filter UI."""
 from __future__ import annotations
 
 import csv
 import html
+import re
 from datetime import date
 from pathlib import Path
 
@@ -25,9 +26,16 @@ PLACEHOLDER_IMG = (
 )
 
 
-def _price_int(price: str) -> int:
+def _int_from(text: str) -> int:
+    """Pull the first integer from a free-text field (e.g. '1,234 TT' → 1234)."""
+    if not text:
+        return 0
+    m = re.search(r"[\d,]+", text)
+    if not m:
+        return 0
+    digits = m.group(0).replace(",", "")
     try:
-        return int("".join(c for c in (price or "") if c.isdigit()))
+        return int(digits)
     except ValueError:
         return 0
 
@@ -36,16 +44,18 @@ def render() -> Path:
     if not CSV_PATH.exists():
         raise SystemExit(f"{CSV_PATH} not found — run scrape.py first")
     rows = list(csv.DictReader(CSV_PATH.open(newline="", encoding="utf-8")))
-    # Sort by make, then year desc, then price desc
+
+    makes = sorted({r.get("make") or "Unknown" for r in rows})
+    sources = sorted({r.get("source") or "" for r in rows if r.get("source")})
+
+    # Default sort: make, then year desc, then price desc
     rows.sort(
         key=lambda r: (
             r.get("make") or "",
             -int(r.get("year") or 0),
-            -_price_int(r.get("price") or ""),
+            -_int_from(r.get("price") or ""),
         )
     )
-
-    makes = sorted({r.get("make") or "Unknown" for r in rows})
 
     cards_html: list[str] = []
     for r in rows:
@@ -64,6 +74,22 @@ def render() -> Path:
         img = html.escape(r.get("image_url") or "", quote=True) or PLACEHOLDER_IMG
         first_seen = html.escape(r.get("first_seen") or "")
 
+        # Numeric data attributes for sort/filter
+        year_n = int(r.get("year") or 0)
+        price_n = _int_from(r.get("price") or "")
+        hours_n = _int_from(r.get("total_time") or "")
+        # Searchable text blob
+        search_blob = html.escape(
+            " ".join([
+                r.get("title") or "",
+                r.get("model") or "",
+                r.get("location") or "",
+                r.get("description") or "",
+                r.get("engine") or "",
+            ]).lower(),
+            quote=True,
+        )
+
         spec_rows = []
         if model:
             spec_rows.append(f'<div class="spec"><span>Model</span><span>{model}</span></div>')
@@ -75,7 +101,10 @@ def render() -> Path:
             spec_rows.append(f'<div class="spec"><span>Engine TT</span><span>{eng_time}</span></div>')
 
         cards_html.append(
-            f"""<a class="card" href="{url}" target="_blank" rel="noopener" data-make="{make}" data-source="{source}">
+            f"""<a class="card" href="{url}" target="_blank" rel="noopener"
+   data-make="{make}" data-source="{source}"
+   data-year="{year_n}" data-price="{price_n}" data-hours="{hours_n}"
+   data-search="{search_blob}">
   <div class="thumb"><img loading="lazy" src="{img}" alt="{title}" onerror="this.src='{PLACEHOLDER_IMG}'"></div>
   <div class="body">
     <div class="title">{title}</div>
@@ -92,9 +121,13 @@ def render() -> Path:
 </a>"""
         )
 
-    filter_buttons = "".join(
-        f'<button class="filter" data-filter="{html.escape(m, quote=True)}">{html.escape(m)}</button>'
+    make_buttons = "".join(
+        f'<button class="chip make-chip" data-make="{html.escape(m, quote=True)}">{html.escape(m)}</button>'
         for m in makes
+    )
+    source_buttons = "".join(
+        f'<button class="chip source-chip" data-source="{html.escape(s, quote=True)}">{html.escape(s)}</button>'
+        for s in sources
     )
 
     page = f"""<!doctype html>
@@ -105,7 +138,7 @@ def render() -> Path:
 <title>Aircraft listings — {date.today().isoformat()}</title>
 <style>
   :root {{ color-scheme: light dark; --bg:#f5f5f7; --card:#fff; --fg:#222; --muted:#666;
-           --border:#e2e2e6; --accent:#0366d6; }}
+           --border:#e2e2e6; --accent:#0366d6; --chip-bg:transparent; }}
   @media (prefers-color-scheme: dark) {{
     :root {{ --bg:#1a1a1c; --card:#26262a; --fg:#eee; --muted:#aaa; --border:#3a3a40;
              --accent:#58a6ff; }}
@@ -113,20 +146,38 @@ def render() -> Path:
   * {{ box-sizing: border-box; }}
   body {{ margin:0; font: 14px/1.4 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
           background:var(--bg); color:var(--fg); }}
-  header {{ padding:18px 24px; border-bottom:1px solid var(--border); background:var(--card);
+  header {{ padding:14px 20px; border-bottom:1px solid var(--border); background:var(--card);
             position:sticky; top:0; z-index:2; }}
-  h1 {{ margin:0 0 8px 0; font-size:20px; font-weight:600; }}
-  .subhead {{ color:var(--muted); font-size:13px; margin-bottom:12px; }}
-  .filters {{ display:flex; gap:8px; flex-wrap:wrap; }}
-  .filter {{ padding:6px 14px; border-radius:999px; border:1px solid var(--border); background:transparent;
-             color:var(--fg); font:inherit; cursor:pointer; }}
-  .filter.active {{ background:var(--accent); color:#fff; border-color:var(--accent); }}
+  h1 {{ margin:0 0 4px 0; font-size:18px; font-weight:600; }}
+  .subhead {{ color:var(--muted); font-size:12px; margin-bottom:10px; }}
+  .controls {{ display:grid; gap:10px;
+               grid-template-columns: 1fr; }}
+  @media (min-width: 760px) {{
+    .controls {{ grid-template-columns: 2fr 1fr 1fr 1fr; align-items:end; }}
+  }}
+  .control-group {{ display:flex; flex-direction:column; gap:4px; }}
+  .control-group label {{ font-size:11px; color:var(--muted); text-transform:uppercase;
+                          letter-spacing:0.5px; }}
+  .control-group input, .control-group select {{
+    padding:6px 10px; border:1px solid var(--border); border-radius:6px;
+    background:var(--bg); color:var(--fg); font:inherit; }}
+  .range-row {{ display:flex; gap:6px; }}
+  .range-row input {{ width:0; flex:1; min-width:0; }}
+  .chips {{ display:flex; gap:6px; flex-wrap:wrap; margin-top:10px; }}
+  .chip {{ padding:5px 12px; border-radius:999px; border:1px solid var(--border);
+           background:var(--chip-bg); color:var(--fg); font:inherit; font-size:12px; cursor:pointer; }}
+  .chip:hover {{ border-color:var(--accent); }}
+  .chip.active {{ background:var(--accent); color:#fff; border-color:var(--accent); }}
+  .chip-row-label {{ font-size:11px; color:var(--muted); text-transform:uppercase;
+                     letter-spacing:0.5px; align-self:center; margin-right:4px; }}
+  #count {{ font-weight:600; }}
   main {{ padding:20px; display:grid; gap:16px;
           grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }}
   .card {{ display:flex; flex-direction:column; background:var(--card); border:1px solid var(--border);
            border-radius:10px; overflow:hidden; text-decoration:none; color:inherit;
            transition: transform .1s, box-shadow .15s; }}
   .card:hover {{ transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }}
+  .card.hidden {{ display:none; }}
   .thumb {{ aspect-ratio: 16/10; background:#0001; overflow:hidden; }}
   .thumb img {{ width:100%; height:100%; object-fit:cover; display:block; }}
   .body {{ padding:12px 14px; display:flex; flex-direction:column; gap:6px; }}
@@ -142,38 +193,145 @@ def render() -> Path:
   .footer {{ display:flex; justify-content:space-between; font-size:11px; color:var(--muted);
              margin-top:auto; padding-top:6px; border-top:1px solid var(--border); }}
   .source {{ text-transform:uppercase; letter-spacing:0.5px; }}
+  #empty {{ padding:40px 20px; text-align:center; color:var(--muted); display:none; }}
 </style>
 </head>
 <body>
 <header>
-  <h1>Aircraft listings — {len(rows)} total</h1>
+  <h1>Aircraft listings — <span id="count">{len(rows)}</span> shown</h1>
   <div class="subhead">Updated {date.today().isoformat()} · click any card to open the listing</div>
-  <div class="filters">
-    <button class="filter active" data-filter="__all__">All ({len(rows)})</button>
-    {filter_buttons}
+  <div class="controls">
+    <div class="control-group">
+      <label for="search">Search</label>
+      <input id="search" type="search" placeholder="Title, model, location, description…">
+    </div>
+    <div class="control-group">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option value="default">Default (make / newest / highest price)</option>
+        <option value="year-desc">Year — newest first</option>
+        <option value="year-asc">Year — oldest first</option>
+        <option value="price-asc">Price — low to high</option>
+        <option value="price-desc">Price — high to low</option>
+        <option value="hours-asc">Airframe TT — low to high</option>
+        <option value="hours-desc">Airframe TT — high to low</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>Price range ($)</label>
+      <div class="range-row">
+        <input id="price-min" type="number" placeholder="Min" min="0">
+        <input id="price-max" type="number" placeholder="Max" min="0">
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Year range</label>
+      <div class="range-row">
+        <input id="year-min" type="number" placeholder="From" min="1900" max="2030">
+        <input id="year-max" type="number" placeholder="To" min="1900" max="2030">
+      </div>
+    </div>
+  </div>
+  <div class="chips">
+    <span class="chip-row-label">Make:</span>
+    <button class="chip make-chip active" data-make="__all__">All</button>
+    {make_buttons}
+  </div>
+  <div class="chips">
+    <span class="chip-row-label">Source:</span>
+    <button class="chip source-chip active" data-source="__all__">All</button>
+    {source_buttons}
   </div>
 </header>
 <main id="grid">
   {''.join(cards_html)}
 </main>
+<div id="empty">No listings match the current filters.</div>
 <script>
-  const filters = document.querySelectorAll('.filter');
-  const cards = document.querySelectorAll('.card');
-  filters.forEach(b => b.addEventListener('click', () => {{
-    filters.forEach(x => x.classList.remove('active'));
+  const grid = document.getElementById('grid');
+  const cards = Array.from(grid.querySelectorAll('.card'));
+  const countEl = document.getElementById('count');
+  const emptyEl = document.getElementById('empty');
+  const searchEl = document.getElementById('search');
+  const sortEl = document.getElementById('sort');
+  const priceMinEl = document.getElementById('price-min');
+  const priceMaxEl = document.getElementById('price-max');
+  const yearMinEl = document.getElementById('year-min');
+  const yearMaxEl = document.getElementById('year-max');
+
+  let activeMake = '__all__';
+  let activeSource = '__all__';
+
+  function num(v) {{ const n = parseInt(v, 10); return Number.isFinite(n) ? n : null; }}
+
+  function apply() {{
+    const q = searchEl.value.trim().toLowerCase();
+    const pMin = num(priceMinEl.value), pMax = num(priceMaxEl.value);
+    const yMin = num(yearMinEl.value), yMax = num(yearMaxEl.value);
+
+    let visible = [];
+    for (const c of cards) {{
+      const make = c.dataset.make;
+      const source = c.dataset.source;
+      const year = parseInt(c.dataset.year, 10) || 0;
+      const price = parseInt(c.dataset.price, 10) || 0;
+      const search = c.dataset.search;
+
+      let show = true;
+      if (activeMake !== '__all__' && make !== activeMake) show = false;
+      if (activeSource !== '__all__' && source !== activeSource) show = false;
+      if (q && !search.includes(q)) show = false;
+      if (pMin !== null && (price === 0 || price < pMin)) show = false;
+      if (pMax !== null && price > pMax) show = false;
+      if (yMin !== null && (year === 0 || year < yMin)) show = false;
+      if (yMax !== null && year > yMax) show = false;
+
+      c.classList.toggle('hidden', !show);
+      if (show) visible.push(c);
+    }}
+
+    // Sort
+    const sortKey = sortEl.value;
+    if (sortKey !== 'default') {{
+      const cmp = {{
+        'year-desc':  (a,b) => (+b.dataset.year) - (+a.dataset.year),
+        'year-asc':   (a,b) => (+a.dataset.year) - (+b.dataset.year),
+        'price-desc': (a,b) => (+b.dataset.price) - (+a.dataset.price),
+        'price-asc':  (a,b) => ((+a.dataset.price || Infinity) - (+b.dataset.price || Infinity)),
+        'hours-desc': (a,b) => (+b.dataset.hours) - (+a.dataset.hours),
+        'hours-asc':  (a,b) => ((+a.dataset.hours || Infinity) - (+b.dataset.hours || Infinity)),
+      }}[sortKey];
+      visible.sort(cmp);
+      // Re-attach in sorted order (DOM order = visual order)
+      for (const c of visible) grid.appendChild(c);
+    }}
+
+    countEl.textContent = visible.length;
+    emptyEl.style.display = visible.length === 0 ? 'block' : 'none';
+  }}
+
+  document.querySelectorAll('.make-chip').forEach(b => b.addEventListener('click', () => {{
+    document.querySelectorAll('.make-chip').forEach(x => x.classList.remove('active'));
     b.classList.add('active');
-    const f = b.dataset.filter;
-    cards.forEach(c => {{
-      c.style.display = (f === '__all__' || c.dataset.make === f) ? '' : 'none';
-    }});
+    activeMake = b.dataset.make;
+    apply();
   }}));
+  document.querySelectorAll('.source-chip').forEach(b => b.addEventListener('click', () => {{
+    document.querySelectorAll('.source-chip').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    activeSource = b.dataset.source;
+    apply();
+  }}));
+  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl]) {{
+    el.addEventListener('input', apply);
+    el.addEventListener('change', apply);
+  }}
 </script>
 </body>
 </html>
 """
 
     HTML_PATH.write_text(page, encoding="utf-8")
-    # Mirror to docs/index.html for GitHub Pages (Pages reads from /docs on main).
     DOCS_HTML_PATH.write_text(page, encoding="utf-8")
     return HTML_PATH
 
