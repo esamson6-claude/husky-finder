@@ -241,6 +241,16 @@ def main() -> int:
     except Exception as e:
         print(f"  enrich failed: {e}", file=sys.stderr)
 
+    # Track per-URL price changes, surface any drops since the last run.
+    drops: list[dict] = []
+    try:
+        import price_history
+        drops = price_history.update_history(current.values())
+        if drops:
+            print(f"  price history: {len(drops)} price drop(s)", file=sys.stderr)
+    except Exception as e:
+        print(f"  price tracking failed: {e}", file=sys.stderr)
+
     # Geocode any new locations (cached, idempotent, ~1 req/sec)
     try:
         import geocode
@@ -256,11 +266,13 @@ def main() -> int:
     except Exception as e:
         print(f"  HTML generation failed: {e}", file=sys.stderr)
 
-    # Email digest of new listings (no-op if RESEND_API_KEY not set or none new)
+    # Email digest of new listings + price drops
+    # (no-op if RESEND_API_KEY not set or nothing to report)
     try:
         import notify
         notify.send(
             (current[u] for u in new_urls),
+            drops=drops,
             project_url="https://esamson6-claude.github.io/husky-finder/",
         )
     except Exception as e:
