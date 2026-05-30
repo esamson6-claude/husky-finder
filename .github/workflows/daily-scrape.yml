@@ -1,0 +1,45 @@
+name: Daily listings refresh
+
+on:
+  schedule:
+    # 13:00 UTC daily ≈ 9:00 AM ET (8 AM EST / 9 AM EDT)
+    - cron: '0 13 * * *'
+  workflow_dispatch: {}  # allow manual triggering from the Actions tab
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Install Python dependencies
+        run: |
+          ~/.local/bin/uv venv
+          ~/.local/bin/uv pip install -r requirements.txt
+
+      - name: Run scraper
+        env:
+          SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
+        run: .venv/bin/python scrape.py
+
+      - name: Commit and push if there are changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ docs/
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Daily update: $(date -u +%Y-%m-%d)"
+            git push
+          fi
