@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import html
+import json
 import re
 from datetime import date
 from pathlib import Path
@@ -12,8 +13,18 @@ DATA_DIR = PROJECT_ROOT / "data"
 DOCS_DIR = PROJECT_ROOT / "docs"
 DOCS_DIR.mkdir(exist_ok=True)
 CSV_PATH = DATA_DIR / "listings.csv"
+GEOCACHE_PATH = DATA_DIR / "geocache.json"
 HTML_PATH = DATA_DIR / "listings.html"
 DOCS_HTML_PATH = DOCS_DIR / "index.html"
+
+
+def _load_geocache() -> dict[str, list[float] | None]:
+    if GEOCACHE_PATH.exists():
+        try:
+            return json.loads(GEOCACHE_PATH.read_text())
+        except json.JSONDecodeError:
+            return {}
+    return {}
 
 
 PLACEHOLDER_IMG = (
@@ -44,6 +55,7 @@ def render() -> Path:
     if not CSV_PATH.exists():
         raise SystemExit(f"{CSV_PATH} not found — run scrape.py first")
     rows = list(csv.DictReader(CSV_PATH.open(newline="", encoding="utf-8")))
+    geocache = _load_geocache()
 
     makes = sorted({r.get("make") or "Unknown" for r in rows})
     sources = sorted({r.get("source") or "" for r in rows if r.get("source")})
@@ -78,6 +90,10 @@ def render() -> Path:
         year_n = int(r.get("year") or 0)
         price_n = _int_from(r.get("price") or "")
         hours_n = _int_from(r.get("total_time") or "")
+        # Geocoded coordinates (may be None if Nominatim couldn't resolve)
+        coords = geocache.get((r.get("location") or "").strip())
+        lat_attr = f' data-lat="{coords[0]}"' if coords else ""
+        lng_attr = f' data-lng="{coords[1]}"' if coords else ""
         # Searchable text blob
         search_blob = html.escape(
             " ".join([
@@ -104,7 +120,8 @@ def render() -> Path:
             f"""<a class="card" href="{url}" target="_blank" rel="noopener"
    data-make="{make}" data-source="{source}"
    data-year="{year_n}" data-price="{price_n}" data-hours="{hours_n}"
-   data-search="{search_blob}">
+   data-search="{search_blob}"{lat_attr}{lng_attr}
+   data-title="{title}" data-price-text="{price}" data-loc="{loc}" data-img="{img}">
   <div class="thumb"><img loading="lazy" src="{img}" alt="{title}" onerror="this.src='{PLACEHOLDER_IMG}'"></div>
   <div class="body">
     <div class="title">{title}</div>
@@ -136,6 +153,8 @@ def render() -> Path:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Aircraft listings — {date.today().isoformat()}</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
   :root {{ color-scheme: light dark; --bg:#f5f5f7; --card:#fff; --fg:#222; --muted:#666;
            --border:#e2e2e6; --accent:#0366d6; --chip-bg:transparent; }}
@@ -194,12 +213,36 @@ def render() -> Path:
              margin-top:auto; padding-top:6px; border-top:1px solid var(--border); }}
   .source {{ text-transform:uppercase; letter-spacing:0.5px; }}
   #empty {{ padding:40px 20px; text-align:center; color:var(--muted); display:none; }}
+  .view-toggle {{ display:flex; gap:4px; background:var(--bg); padding:3px; border-radius:8px;
+                  border:1px solid var(--border); }}
+  .view-toggle button {{ padding:5px 14px; border:0; background:transparent; color:var(--fg);
+                         font:inherit; cursor:pointer; border-radius:5px; }}
+  .view-toggle button.active {{ background:var(--accent); color:#fff; }}
+  #map {{ height: calc(100vh - 250px); min-height: 500px; margin:0 20px 20px 20px;
+          border-radius: 10px; border:1px solid var(--border); display:none; }}
+  body.map-view #grid, body.map-view #empty {{ display:none; }}
+  body.map-view #map {{ display:block; }}
+  .leaflet-popup-content {{ margin:8px 10px; }}
+  .leaflet-popup-content .popup-thumb {{ width:200px; height:120px; object-fit:cover;
+                                          border-radius:4px; display:block; margin-bottom:6px; }}
+  .leaflet-popup-content .popup-title {{ font-weight:600; font-size:13px; margin-bottom:2px; }}
+  .leaflet-popup-content .popup-price {{ color:#0366d6; font-weight:600; font-size:13px; }}
+  .leaflet-popup-content .popup-loc {{ font-size:11px; color:#666; }}
+  .leaflet-popup-content a {{ color:#0366d6; text-decoration:none; font-size:11px; }}
 </style>
 </head>
 <body>
 <header>
-  <h1>Aircraft listings — <span id="count">{len(rows)}</span> shown</h1>
-  <div class="subhead">Updated {date.today().isoformat()} · click any card to open the listing</div>
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
+    <div>
+      <h1>Aircraft listings — <span id="count">{len(rows)}</span> shown</h1>
+      <div class="subhead">Updated {date.today().isoformat()} · click any card to open the listing</div>
+    </div>
+    <div class="view-toggle">
+      <button id="view-grid" class="active">Grid</button>
+      <button id="view-map">Map</button>
+    </div>
+  </div>
   <div class="controls">
     <div class="control-group">
       <label for="search">Search</label>
@@ -247,6 +290,9 @@ def render() -> Path:
   {''.join(cards_html)}
 </main>
 <div id="empty">No listings match the current filters.</div>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
   const grid = document.getElementById('grid');
   const cards = Array.from(grid.querySelectorAll('.card'));
@@ -326,6 +372,66 @@ def render() -> Path:
     el.addEventListener('input', apply);
     el.addEventListener('change', apply);
   }}
+
+  // ---- Map view (Leaflet) ----
+  let map = null;
+  let markerLayer = null;
+  function initMap() {{
+    if (map) return;
+    map = L.map('map', {{ scrollWheelZoom: true }}).setView([39.8, -98.5], 4);
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }}).addTo(map);
+    markerLayer = L.layerGroup().addTo(map);
+  }}
+  function renderMarkers() {{
+    if (!markerLayer) return;
+    markerLayer.clearLayers();
+    const visibleCards = cards.filter(c => !c.classList.contains('hidden'));
+    let bounds = [];
+    for (const c of visibleCards) {{
+      const lat = parseFloat(c.dataset.lat);
+      const lng = parseFloat(c.dataset.lng);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng)) continue;
+      const html = '<img class="popup-thumb" src="' + c.dataset.img + '" alt="">' +
+                   '<div class="popup-title">' + c.dataset.title + '</div>' +
+                   '<div class="popup-price">' + c.dataset.priceText + '</div>' +
+                   '<div class="popup-loc">' + c.dataset.loc + '</div>' +
+                   '<a href="' + c.href + '" target="_blank" rel="noopener">View listing →</a>';
+      L.marker([lat, lng]).bindPopup(html, {{minWidth: 220}}).addTo(markerLayer);
+      bounds.push([lat, lng]);
+    }}
+    if (bounds.length > 0) map.fitBounds(bounds, {{padding: [30, 30], maxZoom: 10}});
+  }}
+  document.getElementById('view-grid').addEventListener('click', () => {{
+    document.body.classList.remove('map-view');
+    document.getElementById('view-grid').classList.add('active');
+    document.getElementById('view-map').classList.remove('active');
+  }});
+  document.getElementById('view-map').addEventListener('click', () => {{
+    document.body.classList.add('map-view');
+    document.getElementById('view-map').classList.add('active');
+    document.getElementById('view-grid').classList.remove('active');
+    initMap();
+    setTimeout(() => {{ map.invalidateSize(); renderMarkers(); }}, 50);
+  }});
+  // Re-render markers whenever filters change (only if map is currently shown)
+  const origApply = apply;
+  apply = function() {{
+    origApply();
+    if (document.body.classList.contains('map-view')) renderMarkers();
+  }};
+  // Note: the apply reassignment above doesn't affect existing listeners since
+  // they captured the original. Use a wrapper instead.
+  function applyAndMap() {{ apply(); }}
+  // Already wired above with `apply`. Add a separate listener to re-render markers on filter change.
+  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl]) {{
+    el.addEventListener('input', () => {{ if (document.body.classList.contains('map-view')) renderMarkers(); }});
+  }}
+  document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {{
+    if (document.body.classList.contains('map-view')) renderMarkers();
+  }}));
 </script>
 </body>
 </html>

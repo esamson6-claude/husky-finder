@@ -396,6 +396,13 @@ def main() -> int:
         file=sys.stderr,
     )
 
+    # Geocode any new locations (cached, idempotent, ~1 req/sec)
+    try:
+        import geocode
+        geocode.main()
+    except Exception as e:
+        print(f"  geocode failed: {e}", file=sys.stderr)
+
     # Render the HTML view
     try:
         from generate_html import render
