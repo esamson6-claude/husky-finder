@@ -23,12 +23,6 @@ def _keep_husky_180_or_c(l: dict) -> bool:
     return bool(re.search(r"\bA-1B\b|\bA-1C\b", blob))
 
 
-def _keep_maule_m5(l: dict) -> bool:
-    """Keep only Maule M-5 variants (any M-5-XXX)."""
-    blob = " ".join(
-        [(l.get(k) or "").upper() for k in ("model", "description", "title")]
-    )
-    return bool(re.search(r"\bM[-\s]?5\b", blob))
 
 
 # Each search is one (source, make, url) combination.
@@ -80,34 +74,29 @@ SEARCHES: list[dict] = [
         "default_model": "Husky",
         "post_filter": _keep_husky_180_or_c,
     },
-    # ---- Maule M-5 ----
+    # ---- Maule (all models) ----
     {
-        "make": "Maule M-5",
+        "make": "Maule",
         "module": "scrapers.aircraftforsale",
-        "slug": "maule-m5",
-        "url": "https://aircraftforsale.com/aircraft/search?manufacturer=Maule&model=M-5",
-        "href_substring": "m-5",
-        "default_model": "M-5",
+        "slug": "maule",
+        "url": "https://aircraftforsale.com/aircraft/search?manufacturer=Maule",
+        "href_substring": "maule",
+        "default_model": "Maule",
     },
     {
-        "make": "Maule M-5",
+        "make": "Maule",
         "module": "scrapers.trade_a_plane",
-        "slug": "maule-m5",
-        "url": (
-            "https://www.trade-a-plane.com/filtered/search?make=MAULE"
-            "&model_group=MAULE+M5+SERIES&s-type=aircraft"
-        ),
-        "default_model": "M-5",
+        "slug": "maule",
+        "url": "https://www.trade-a-plane.com/filtered/search?make=MAULE&s-type=aircraft",
+        "default_model": "Maule",
     },
     {
-        "make": "Maule M-5",
+        "make": "Maule",
         "module": "scrapers.controller",
-        "slug": "maule-m5",
-        # Controller has no /maule/m-5/ subpath; use parent and filter to M-5.
+        "slug": "maule",
         "url": "https://www.controller.com/listings/for-sale/maule/aircraft",
         "title_make_pattern": "MAULE",
-        "default_model": "M-5",
-        "post_filter": _keep_maule_m5,
+        "default_model": "Maule",
     },
 ]
 
