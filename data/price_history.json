@@ -45,6 +45,10 @@
     {
       "date": "2026-05-30",
       "price": 245000
+    },
+    {
+      "date": "2026-06-04",
+      "price": 209000
     }
   ],
   "https://www.controller.com/listing/for-sale/220797383/2013-aviat-husky-a-1c-180-piston-single-aircraft": [
@@ -75,6 +79,10 @@
     {
       "date": "2026-05-30",
       "price": 245000
+    },
+    {
+      "date": "2026-06-04",
+      "price": 209000
     }
   ],
   "https://www.controller.com/listing/for-sale/253591041/2004-maule-mxt7-180a-piston-single-aircraft": [
@@ -99,6 +107,10 @@
     {
       "date": "2026-05-30",
       "price": 265000
+    },
+    {
+      "date": "2026-06-04",
+      "price": 245000
     }
   ],
   "https://www.controller.com/listing/for-sale/255199797/2014-aviat-husky-a-1c-180-piston-single-aircraft": [
@@ -155,6 +167,10 @@
     {
       "date": "2026-06-03",
       "price": 134597
+    },
+    {
+      "date": "2026-06-04",
+      "price": 134297
     }
   ],
   "https://www.controller.com/listing/for-sale/256668449/2023-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -173,6 +189,10 @@
     {
       "date": "2026-05-30",
       "price": 245000
+    },
+    {
+      "date": "2026-06-04",
+      "price": 209000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2453890&s-type=aircraft": [
@@ -217,6 +237,12 @@
       "price": 189000
     }
   ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2456524&s-type=aircraft": [
+    {
+      "date": "2026-06-04",
+      "price": 224000
+    }
+  ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2456757&s-type=aircraft": [
     {
       "date": "2026-06-01",
@@ -257,6 +283,10 @@
     {
       "date": "2026-05-30",
       "price": 399500
+    },
+    {
+      "date": "2026-06-04",
+      "price": 389500
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1C&listing_id=2456510&s-type=aircraft": [
