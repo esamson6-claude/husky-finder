@@ -183,6 +183,10 @@
     {
       "date": "2026-06-07",
       "price": 133418
+    },
+    {
+      "date": "2026-06-08",
+      "price": 133441
     }
   ],
   "https://www.controller.com/listing/for-sale/256668449/2023-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -357,6 +361,16 @@
     {
       "date": "2026-05-30",
       "price": 225000
+    },
+    {
+      "date": "2026-06-08",
+      "price": 219500
+    }
+  ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-5-235C&listing_id=2456978&s-type=aircraft": [
+    {
+      "date": "2026-06-08",
+      "price": 105000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-235B&listing_id=2447607&s-type=aircraft": [
