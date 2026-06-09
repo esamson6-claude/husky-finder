@@ -80,6 +80,11 @@
   @media (prefers-color-scheme: dark) {
     .drop { background:#4a1f1f; color:#ff9999; }
   }
+  .thumb { position:relative; }
+  .new-badge { position:absolute; top:8px; left:8px; background:#1e9e3e;
+                color:#fff; font-size:11px; font-weight:700;
+                padding:3px 8px; border-radius:4px; letter-spacing:0.5px;
+                box-shadow:0 1px 4px rgba(0,0,0,0.2); }
   .specs { display:grid; grid-template-columns: auto 1fr; gap:2px 10px; font-size:12px;
             color:var(--muted); margin-top:2px; }
   .spec { display:contents; }
@@ -113,7 +118,7 @@
 <header>
   <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
     <div>
-      <h1>Aircraft listings — <span id="count">86</span> shown</h1>
+      <h1>Aircraft listings — <span id="count">93</span> shown</h1>
       <div class="subhead">Updated 2026-06-09 · click any card to open the listing</div>
     </div>
     <div style="display:flex; gap:8px; align-items:center;">
@@ -157,7 +162,11 @@
       </div>
     </div>
   </div>
-  <div style="margin-top:10px;">
+  <div style="margin-top:10px; display:flex; gap:18px; flex-wrap:wrap;">
+    <label style="font-size:12px; color:var(--muted); cursor:pointer;">
+      <input id="new-only" type="checkbox" style="vertical-align:middle;">
+      Show only new listings (2 in last 7 days)
+    </label>
     <label style="font-size:12px; color:var(--muted); cursor:pointer;">
       <input id="drops-only" type="checkbox" style="vertical-align:middle;">
       Show only listings with recent price drops
@@ -171,13 +180,51 @@
   <div class="chips">
     <span class="chip-row-label">Source:</span>
     <button class="chip source-chip active" data-source="__all__">All</button>
-    <button class="chip source-chip" data-source="aviat">aviat</button><button class="chip source-chip" data-source="barnstormers">barnstormers</button><button class="chip source-chip" data-source="controller">controller</button><button class="chip source-chip" data-source="trade-a-plane">trade-a-plane</button>
+    <button class="chip source-chip" data-source="aircraftforsale">aircraftforsale</button><button class="chip source-chip" data-source="aviat">aviat</button><button class="chip source-chip" data-source="barnstormers">barnstormers</button><button class="chip source-chip" data-source="controller">controller</button><button class="chip source-chip" data-source="trade-a-plane">trade-a-plane</button>
   </div>
   </div><!-- /#filter-panel -->
 </header>
 <button id="floating-filter" type="button">☰ Filters</button>
 <main id="grid">
-  <a class="card" href="https://www.controller.com/listing/for-sale/251582831/2026-aviat-husky-a-1c-200-piston-single-aircraft" target="_blank" rel="noopener"
+  <a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=MT-7-260&amp;listing_id=2456832&amp;s-type=aircraft" target="_blank" rel="noopener"
+   data-make="Maule" data-source="trade-a-plane"
+   data-year="2001" data-price="340000" data-hours="45"
+   data-search="2001 maule mt-7-260 n mt-7-260 charlevoix, mi 2001 maule mt-7-260 new item $340,000 get financing as low as $1,561.42 a month* reg# n45hr tt: 915 performance specs highly maintained low time m7, 260 hp w/ only 240 hours since factory reman, no damage snew, wipline 3000&#x27;s installed in 2011 with 500 hrs tt, excellent co... more info elevated aircraft sales charlevoix , mi usa (651) 402-xxxx (click) compare save last update: 06/02/2026 260 hp" data-lat="45.202075" data-lng="-84.9676387" data-new="1"
+   data-title="2001 Maule MT-7-260" data-price-text="$340,000" data-loc="Charlevoix, MI" data-img="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI1MTAzLmpwZyJ9">
+  <div class="thumb"><img loading="lazy" src="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI1MTAzLmpwZyJ9" alt="2001 Maule MT-7-260" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"><div class="new-badge">NEW</div></div>
+  <div class="body">
+    <div class="title">2001 Maule MT-7-260</div>
+    <div class="price">$340,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>MT-7-260</span></div><div class="spec"><span>Engine</span><span>260 hp</span></div><div class="spec"><span>Airframe TT</span><span>45 HR</span></div></div>
+    <div class="meta">
+      <span class="loc">Charlevoix, MI</span>
+    </div>
+    <div class="footer">
+      <span class="source">trade-a-plane</span>
+      <span class="seen">first seen 2026-06-02</span>
+    </div>
+  </div>
+</a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=MT-7-260&amp;listing_id=2456799&amp;s-type=aircraft" target="_blank" rel="noopener"
+   data-make="Maule" data-source="trade-a-plane"
+   data-year="2001" data-price="315500" data-hours="0"
+   data-search="2001 maule mt-7-260 n mt-7-260  2001 maule mt-7-260 new item $315,500 get financing as low as $1,448.90 a month* reg# n20rd tt: 701 performance specs 2001 maule mt-7-260, no damage history, complete log books, always hangared. this is the maule mt-7-260 you have been looking for! more info maule air texas inc tx usa (214) 384-xxxx (click) compare save last update: 06/02/2026 260 hp" data-new="1"
+   data-title="2001 Maule MT-7-260" data-price-text="$315,500" data-loc="" data-img="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI0NjMwLmpwZyJ9">
+  <div class="thumb"><img loading="lazy" src="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI0NjMwLmpwZyJ9" alt="2001 Maule MT-7-260" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"><div class="new-badge">NEW</div></div>
+  <div class="body">
+    <div class="title">2001 Maule MT-7-260</div>
+    <div class="price">$315,500</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>MT-7-260</span></div><div class="spec"><span>Engine</span><span>260 hp</span></div></div>
+    <div class="meta">
+      <span class="loc"></span>
+    </div>
+    <div class="footer">
+      <span class="source">trade-a-plane</span>
+      <span class="seen">first seen 2026-06-02</span>
+    </div>
+  </div>
+</a><a class="card" href="https://www.controller.com/listing/for-sale/251582831/2026-aviat-husky-a-1c-200-piston-single-aircraft" target="_blank" rel="noopener"
    data-make="Aviat Husky" data-source="controller"
    data-year="2026" data-price="0" data-hours="1"
    data-search="2026 aviat husky a-1c-200 a-1c-200 morgan, utah 2026 aviat husky a-1c-200 piston single aircraft options see all 14 photos call for price *apply for financing operating costs view details total time : 1 registration # : n75hu number of seats : 2 engine 1 time : 1 snew year interior : 2026 year painted : 2026 description : make a statement in this sporty 200 hp 2026 husky a-1c with a bold lime green birkmeyer paint scheme. outfitted with mcfarlane alaska lightweight a... updated : friday, june 05, 2026 08:46 am location : morgan, utah email seller (801) 920-1144 seller : aviat aircraft inc. 200 hp" data-lat="41.0784068" data-lng="-111.6509149"
@@ -619,6 +666,25 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
       <span class="seen">first seen 2026-05-29</span>
     </div>
   </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-601527" target="_blank" rel="noopener"
+   data-make="Aviat Husky" data-source="aircraftforsale"
+   data-year="2014" data-price="309000" data-hours="0"
+   data-search="2014 aviat a-1c-180 husky husky mcallen, texas aviat a-1c-180 husky for sale, 315 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston aviat a-1c-180 husky 601527 - aviat a-1c-180 husky 2014 aviat a-1c-180 husky for sale save share more print print picture_as_pdf pdf for sale $309,000 visibility 100+ people viewed this listing in the last 24 hours photo 6 pictures est: $ /mo apply for financing registration data registration number n58nf serial number 3204 total time 315 hours aircraft listing type for sale highlights wow!  $10,000 price drop! gfc500 3-axis autopilot! g500 w/ synthetic vision! gtn750! remote gtx345r ads-b in/out txp and audio panel g5 is backup to the g500 and runs the autopilot. dual usb-a charging and aoa indicator in the panel! second navcomm (garmin sl40). jpi 930 engine monitor, gate 9 oil cooler shutter valve. 843 lbs. useful load- 2 x 200 lbs. guys, 50 gallons of gas, 50 lbs of baggage, 30 lbs in the aft stowage with plenty left over! mac repeat customer. scheduled for new bungees &amp; sight tubes. ndh, well-maintained with complete logs, annual and next ifr inspections due march, 2027. aircraft location texas, united states airframe max takeoff weight: 2,250 lb basic empty weight: 1,403 lb useful load: 847 lb stol fuel capacity volume: 13.21 gal reiff en " data-lat="26.204114" data-lng="-98.2300605"
+   data-title="2014 Aviat Husky Husky" data-price-text="$309,000" data-loc="Mcallen, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/601501-601600/aircraft-single-engine-piston-aviat-a-1c-180-husky-for-sale-601527-b4e996644f963466-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/601501-601600/aircraft-single-engine-piston-aviat-a-1c-180-husky-for-sale-601527-b4e996644f963466-800X600-1.jpg" alt="2014 Aviat Husky Husky" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">2014 Aviat Husky Husky</div>
+    <div class="price">$309,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Husky</span></div></div>
+    <div class="meta">
+      <span class="loc">Mcallen, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
+    </div>
+  </div>
 </a><a class="card" href="https://www.controller.com/listing/for-sale/255199797/2014-aviat-husky-a-1c-180-piston-single-aircraft" target="_blank" rel="noopener"
    data-make="Aviat Husky" data-source="controller"
    data-year="2014" data-price="299000" data-hours="315"
@@ -674,6 +740,25 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
     <div class="footer">
       <span class="source">trade-a-plane</span>
       <span class="seen">first seen 2026-05-29</span>
+    </div>
+  </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-600604" target="_blank" rel="noopener"
+   data-make="Aviat Husky" data-source="aircraftforsale"
+   data-year="2013" data-price="279000" data-hours="0"
+   data-search="2013 aviat a-1c-180 husky husky mcallen, texas aviat a-1c-180 husky for sale, 415 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston aviat a-1c-180 husky 600604 - aviat a-1c-180 husky 2013 aviat a-1c-180 husky for sale save share more print print picture_as_pdf pdf for sale $279,000 visibility 100+ people viewed this listing in the last 24 hours photo 7 pictures est: $ /mo apply for financing registration data registration number n32ma serial number 3196 total time 415 hours aircraft listing type for sale highlights air conditioning? in a husky?  yes, yes, yes!!! the only one on the planet!!! we’ve been working on a solution to cooling off the cockpit of the husky in our 100+ degre summers and we have the answer! this isn’t some ice chest or a simple fan, but an actual air conditioning system with a condenser and evaporator that’s 100% electric with computer controls and multiple blower speeds! only 33 lbs. total and since its portable, no 337 needed- easy in, easy out with the baggage compartment still usable! new 100a hartzell alternator installed replacing the stock 70a. easily removable through the baggage door for cool weather flying. call for details! new 3-blade hartzell pathfinder prop!!! this was the aircraft lent to hartzell to certify the new hartzell pathfinder  " data-lat="26.204114" data-lng="-98.2300605"
+   data-title="2013 Aviat Husky Husky" data-price-text="$279,000" data-loc="Mcallen, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/600601-600700/aircraft-single-engine-piston-aviat-a-1c-180-husky-for-sale-600604-2a3ba3e28140ed08-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/600601-600700/aircraft-single-engine-piston-aviat-a-1c-180-husky-for-sale-600604-2a3ba3e28140ed08-800X600-1.jpg" alt="2013 Aviat Husky Husky" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">2013 Aviat Husky Husky</div>
+    <div class="price">$279,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Husky</span></div></div>
+    <div class="meta">
+      <span class="loc">Mcallen, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
     </div>
   </div>
 </a><a class="card" href="https://www.controller.com/listing/for-sale/220797383/2013-aviat-husky-a-1c-180-piston-single-aircraft" target="_blank" rel="noopener"
@@ -829,6 +914,25 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
       <span class="seen">first seen 2026-05-29</span>
     </div>
   </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601342" target="_blank" rel="noopener"
+   data-make="Aviat Husky" data-source="aircraftforsale"
+   data-year="2007" data-price="199000" data-hours="0"
+   data-search="2007 aviat a-1b husky husky mcallen, texas aviat a-1b husky for sale, 475 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston aviat a-1b husky 601342 - aviat a-1b husky 2007 aviat a-1b husky for sale save share more print print picture_as_pdf pdf for sale $199,000 visibility 100+ people viewed this listing in the last 24 hours photo 6 pictures est: $ /mo apply for financing registration data registration number n168aa serial number 2392 total time 475 hours aircraft listing type for sale highlights outstanding ndh, no corrosion, lightweight low time 180hp husky with the 2200# gtow kit installed, giving this husky over 850 lbs of useful load, ads-b out. becker- lightweight &amp; small but powerful german units (commonly used in sailplanes) comm &amp; transponder. a garmin 560 gps for navigating and an electric t&amp;b for safety. many other upgrades including 26” goodyear “tundra” mlg tires mounted and 29&quot; akb bushwheel tires as loose equipment are included. left and right landing lights, rear seat heat &amp; defrost, upgraded front seatbelt harness (hooker- commonly used in aerobatic aircraft), ship&#x27;s powered bose/lightspeed headset jacks, very nice red leather seats &amp; stick covers, baggage door &amp; aft stowage with left &amp; right doors. the current owner changed out the powerful but heavy  " data-lat="26.204114" data-lng="-98.2300605"
+   data-title="2007 Aviat Husky Husky" data-price-text="$199,000" data-loc="Mcallen, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/601301-601400/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-601342-d914e709d6aadf5c-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/601301-601400/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-601342-d914e709d6aadf5c-800X600-1.jpg" alt="2007 Aviat Husky Husky" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">2007 Aviat Husky Husky</div>
+    <div class="price">$199,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Husky</span></div></div>
+    <div class="meta">
+      <span class="loc">Mcallen, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
+    </div>
+  </div>
 </a><a class="card" href="https://www.controller.com/listing/for-sale/254084127/2007-aviat-husky-a-1b-piston-single-aircraft" target="_blank" rel="noopener"
    data-make="Aviat Husky" data-source="controller"
    data-year="2007" data-price="199000" data-hours="475"
@@ -982,6 +1086,25 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
       <span class="seen">first seen 2026-06-01</span>
     </div>
   </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/78058-mountain-home-texas-united-states/aviat-a-1b-husky-for-sale-600412" target="_blank" rel="noopener"
+   data-make="Aviat Husky" data-source="aircraftforsale"
+   data-year="2002" data-price="155000" data-hours="0"
+   data-search="2002 aviat a-1b husky husky mountain home, texas aviat a-1b husky for sale, 1440 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston aviat a-1b husky 600412 - aviat a-1b husky 2002 aviat a-1b husky for sale save share more print print picture_as_pdf pdf for sale $155,000 visibility 100+ people viewed this listing in the last 24 hours photo 4 pictures est: $ /mo apply for financing registration data registration number n99hy serial number 2213 total time 1440 hours aircraft listing type for sale highlights garmin gnc355, gtx327 transponder, gdl 88 ads-b in and out, aera 560 portable w/xm, aspen efd 1000, led nav and landing lights, 26&quot; tires, mt propeller...original hartzell propeller included. aircraft location texas, united states airframe - avionics - interior/exterior passenger capacity: 2 wifi: no maintenance manufacturer year: 2002 finance calculator powered by flying price ($) down payment ( 0% / $ 0 ) contract period ( 15 years) interest rate ( 7.5 %) last_installment ($ 0 ) monthly payment: $ 0.00 /per month contact us for your actual rate inquire now submit calculation is for information only and does not constitute an offer. seller information sj goebel 78058, mountain home, texas, united states you may also like aviat a-1b featured aviat a-1b $155,000 apply for fina " data-lat="30.1784056" data-lng="-99.3750239"
+   data-title="2002 Aviat Husky Husky" data-price-text="$155,000" data-loc="Mountain Home, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/600401-600500/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-600412-eeb84390746f0cda-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/600401-600500/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-600412-eeb84390746f0cda-800X600-1.jpg" alt="2002 Aviat Husky Husky" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">2002 Aviat Husky Husky</div>
+    <div class="price">$155,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Husky</span></div></div>
+    <div class="meta">
+      <span class="loc">Mountain Home, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
+    </div>
+  </div>
 </a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=AVIAT&amp;model=HUSKY+A-1B&amp;listing_id=2454163&amp;s-type=aircraft" target="_blank" rel="noopener"
    data-make="Aviat Husky" data-source="trade-a-plane"
    data-year="2000" data-price="195000" data-hours="547"
@@ -1018,6 +1141,29 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
     <div class="footer">
       <span class="source">controller</span>
       <span class="seen">first seen 2026-05-30</span>
+    </div>
+  </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601343" target="_blank" rel="noopener"
+   data-make="Aviat Husky" data-source="aircraftforsale"
+   data-year="1999" data-price="179900" data-hours="0"
+   data-search="1999 aviat a-1b husky husky mcallen, texas aviat a-1b husky for sale, 1675 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston aviat a-1b husky 601343 - aviat a-1b husky 1999 aviat a-1b husky for sale save share more print print picture_as_pdf pdf for sale $179,900 visibility 100+ people viewed this listing in the last 24 hours photo 5 pictures est: $ /mo apply for financing registration data registration number n799fw serial number 2023 total time 1675 hours aircraft listing type for sale highlights one of a kind! a one owner, ndh, ifr 180hp husky with a garmin gfc500 
+3-axis autopilot, garmin 430w, kx155 w/ gs, garmin 345 w ads-b in/out 
+and an aspen 1000 pro with synthetic vision and an aoa! a garmin 340 
+handles the intercom and audio switching duties. dual mic/phone jacks 
+for each seat, altitude reporter- it’s so nice! aircraft location texas, united states airframe 8.50 x 6 “oversize” tires scott standard tailwheel cleveland wheels &amp; brakes l hand landing &amp; taxi lights engine oil filter baggage door polished prop spinner dual overhead map lights 60 amp alternator 5 point seatbelts front &amp; rear, inertia reel front shoulder harness aircraft lifting rings (for float installations) whelen strobes and nav lights 50 gallons useable fuel useful load: 668 lbs. max takeoff " data-lat="26.204114" data-lng="-98.2300605"
+   data-title="1999 Aviat Husky Husky" data-price-text="$179,900" data-loc="Mcallen, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/601301-601400/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-601343-1dc6b75e1bc648df-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/601301-601400/aircraft-single-engine-piston-aviat-a-1b-husky-for-sale-601343-1dc6b75e1bc648df-800X600-1.jpg" alt="1999 Aviat Husky Husky" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">1999 Aviat Husky Husky</div>
+    <div class="price">$179,900</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Husky</span></div></div>
+    <div class="meta">
+      <span class="loc">Mcallen, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
     </div>
   </div>
 </a><a class="card" href="https://www.controller.com/listing/for-sale/254195533/1999-aviat-husky-a-1b-piston-single-aircraft" target="_blank" rel="noopener"
@@ -1229,44 +1375,6 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
       <span class="seen">first seen 2026-05-30</span>
     </div>
   </div>
-</a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=MT-7-260&amp;listing_id=2456832&amp;s-type=aircraft" target="_blank" rel="noopener"
-   data-make="Maule" data-source="trade-a-plane"
-   data-year="2001" data-price="340000" data-hours="45"
-   data-search="2001 maule mt-7-260 n mt-7-260 charlevoix, mi 2001 maule mt-7-260 new item $340,000 get financing as low as $1,561.42 a month* reg# n45hr tt: 915 performance specs highly maintained low time m7, 260 hp w/ only 240 hours since factory reman, no damage snew, wipline 3000&#x27;s installed in 2011 with 500 hrs tt, excellent co... more info elevated aircraft sales charlevoix , mi usa (651) 402-xxxx (click) compare save last update: 06/02/2026 260 hp" data-lat="45.202075" data-lng="-84.9676387"
-   data-title="2001 Maule MT-7-260" data-price-text="$340,000" data-loc="Charlevoix, MI" data-img="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI1MTAzLmpwZyJ9">
-  <div class="thumb"><img loading="lazy" src="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI1MTAzLmpwZyJ9" alt="2001 Maule MT-7-260" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
-  <div class="body">
-    <div class="title">2001 Maule MT-7-260</div>
-    <div class="price">$340,000</div>
-    
-    <div class="specs"><div class="spec"><span>Model</span><span>MT-7-260</span></div><div class="spec"><span>Engine</span><span>260 hp</span></div><div class="spec"><span>Airframe TT</span><span>45 HR</span></div></div>
-    <div class="meta">
-      <span class="loc">Charlevoix, MI</span>
-    </div>
-    <div class="footer">
-      <span class="source">trade-a-plane</span>
-      <span class="seen">first seen 2026-06-02</span>
-    </div>
-  </div>
-</a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=MT-7-260&amp;listing_id=2456799&amp;s-type=aircraft" target="_blank" rel="noopener"
-   data-make="Maule" data-source="trade-a-plane"
-   data-year="2001" data-price="315500" data-hours="0"
-   data-search="2001 maule mt-7-260 n mt-7-260  2001 maule mt-7-260 new item $315,500 get financing as low as $1,448.90 a month* reg# n20rd tt: 701 performance specs 2001 maule mt-7-260, no damage history, complete log books, always hangared. this is the maule mt-7-260 you have been looking for! more info maule air texas inc tx usa (214) 384-xxxx (click) compare save last update: 06/03/2026 260 hp"
-   data-title="2001 Maule MT-7-260" data-price-text="$315,500" data-loc="" data-img="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI0NjMwLmpwZyJ9">
-  <div class="thumb"><img loading="lazy" src="https://dsgiipnwy1jd8.cloudfront.net/eyJidWNrZXQiOiJ0YXAtYXNzZXRzMSIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjgwLCJmaXQiOiJjb250YWluIiwiYmFja2dyb3VuZCI6eyJhbHBoYSI6MSwiciI6MjU1LCJiIjoyNTUsImciOjI1NX19LCJzbWFydE92ZXJsYXkiOnsiYnVja2V0IjoidGFwLWFzc2V0czEiLCJrZXkiOiJ3YXRlcm1hcmsucG5nIn19LCJrZXkiOiIxNjI0NjMwLmpwZyJ9" alt="2001 Maule MT-7-260" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
-  <div class="body">
-    <div class="title">2001 Maule MT-7-260</div>
-    <div class="price">$315,500</div>
-    
-    <div class="specs"><div class="spec"><span>Model</span><span>MT-7-260</span></div><div class="spec"><span>Engine</span><span>260 hp</span></div></div>
-    <div class="meta">
-      <span class="loc"></span>
-    </div>
-    <div class="footer">
-      <span class="source">trade-a-plane</span>
-      <span class="seen">first seen 2026-06-02</span>
-    </div>
-  </div>
 </a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=M-7-260C&amp;listing_id=2426032&amp;s-type=aircraft" target="_blank" rel="noopener"
    data-make="Maule" data-source="trade-a-plane"
    data-year="2001" data-price="186500" data-hours="0"
@@ -1381,7 +1489,27 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
       <span class="seen">first seen 2026-05-30</span>
     </div>
   </div>
-</a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=M-7-235C&amp;listing_id=2456997&amp;s-type=aircraft" target="_blank" rel="noopener"
+</a><a class="card" href="https://www.controller.com/listing/for-sale/255617629/1999-maule-m7-260-piston-single-aircraft" target="_blank" rel="noopener"
+   data-make="Maule" data-source="controller"
+   data-year="1999" data-price="219500" data-hours="1645"
+   data-search="1999 maule m7-260 m7-260 galesburg, illinois 1999 maule m7-260 piston single aircraft options featured listing see all 9 photos usd $219,500 payments as low as usd $2,034.79 * *apply for financing operating costs view details total time : 1,645 serial number : 26007c registration # : n811v engine 1 time : 1,645 snew engine 1 make/model : lycoming io-540-v4a5 number of blades : 3 description : 1999 maule m7-260 âsuper rocketâ equipped with dual garmin gi-275s, garmin 530w waas
+gps/nav/com, s-tec 30 autopilot, long-range fuel system, vgâs... updated : monday, june 01, 2026 02:21 pm location : galesburg, illinois email seller (309) 342-3134 seller : jet air inc lycoming io-540-v4a5 260 hp" data-lat="40.9475652" data-lng="-90.3712169"
+   data-title="1999 Maule M7-260" data-price-text="$219,500" data-loc="Galesburg, Illinois" data-img="https://media.sandhills.com/img.axd?id=11019752703&amp;wid=4326165471&amp;rwl=False&amp;p=&amp;ext=&amp;w=350&amp;h=220&amp;t=&amp;lp=&amp;c=True&amp;wt=False&amp;sz=Max&amp;rt=0&amp;checksum=kb6rue%2fHxrvckDIE5eaK9lmO6I3ZcHki8ebFIlchNcQ%3d">
+  <div class="thumb"><img loading="lazy" src="https://media.sandhills.com/img.axd?id=11019752703&amp;wid=4326165471&amp;rwl=False&amp;p=&amp;ext=&amp;w=350&amp;h=220&amp;t=&amp;lp=&amp;c=True&amp;wt=False&amp;sz=Max&amp;rt=0&amp;checksum=kb6rue%2fHxrvckDIE5eaK9lmO6I3ZcHki8ebFIlchNcQ%3d" alt="1999 Maule M7-260" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">1999 Maule M7-260</div>
+    <div class="price">$219,500</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>M7-260</span></div><div class="spec"><span>Engine</span><span>Lycoming IO-540-V4A5 260 hp</span></div><div class="spec"><span>Airframe TT</span><span>1,645 TT</span></div><div class="spec"><span>Engine TT</span><span>1,645 SNEW</span></div></div>
+    <div class="meta">
+      <span class="loc">Galesburg, Illinois</span>
+    </div>
+    <div class="footer">
+      <span class="source">controller</span>
+      <span class="seen">first seen 2026-05-30</span>
+    </div>
+  </div>
+</a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=M-7-260&amp;listing_id=2455403&amp;s-type=aircraft" target="_blank" rel="noopener"
    data-make="Maule" data-source="trade-a-plane"
    data-year="1999" data-price="238500" data-hours="0"
    data-search="1999 maule m-7-235c n m-7-235c  1999 maule m-7-235c new item $238,500 get financing as low as $1,095.29 a month* reg# n913b tt: 1948 performance specs 1999 maule m-7-235c, complete log books, always hangared. this low time maule m-7-235c is the one you’ve been looking for! more info maule air texas inc wi usa (214) 384-xxxx (click) compare save last update: 06/05/2026 235 hp"
@@ -1570,6 +1698,25 @@ very clean, exceptionally low-time 2021 aviat husky with just 129 hours total ti
     <div class="footer">
       <span class="source">trade-a-plane</span>
       <span class="seen">first seen 2026-05-30</span>
+    </div>
+  </div>
+</a><a class="card" href="https://aircraftforsale.com/aircraft/single-engine-piston/maule/mxt-7-180/77864-madisonville-texas-united-states/maule-mxt-7-180-for-sale-600622" target="_blank" rel="noopener"
+   data-make="Maule" data-source="aircraftforsale"
+   data-year="1993" data-price="129000" data-hours="0"
+   data-search="1993 maule mxt-7-180 maule madisonville, texas maule mxt-7-180 for sale, 3766 hours | aircraftforsale.com menu post a listing aircraft for sale sign up login post a listing buy aircraft get financing dealers aviation real estate realtors articles home buy aircraft get financing dealers aviation real estate realtors articles sign in or register! home aircraft single-engine piston maule mxt-7-180 600622 - maule mxt-7-180 1993 maule mxt-7-180 for sale save share more print print picture_as_pdf pdf for sale $129,000 visibility 100+ people viewed this listing in the last 24 hours photo 10 pictures est: $ /mo apply for financing registration data registration number n800cp serial number 14058c total time 3766 hours aircraft listing type for sale highlights 1993 tricycle gear maule mxt-7-180 cruise speeds ias:  75% - 105kts, full power - 115kts this rugged 4 seat aircraft is perfect for someone wanting to get into backcountry flying while maintaining the simplicity of tricycle gear and a full ifr suite with autopilot. this aircraft has plenty of experience flying in and out of short fields with similar takeoff and landing ground rolls are around 500ft in here in texas depending on conditions. this aircraft has been and is currently being used by a flight school primarily as an instrument trainer and a taa aircraft for commercial training. aircraft location texas, united states airframe 1993 maule mxt-7-180 has vortex generators installed on the tail and leading edge avionics garmin g500 split pfd/mfd garmin 430 gps with waas uav " data-lat="30.9498688" data-lng="-95.9127773"
+   data-title="1993 Maule Maule" data-price-text="$129,000" data-loc="Madisonville, Texas" data-img="https://cdn.aircraftforsale.com/production/uploads/item/600601-600700/aircraft-single-engine-piston-maule-mxt-7-180-for-sale-600622-b96befad3296db05-800X600-1.jpg">
+  <div class="thumb"><img loading="lazy" src="https://cdn.aircraftforsale.com/production/uploads/item/600601-600700/aircraft-single-engine-piston-maule-mxt-7-180-for-sale-600622-b96befad3296db05-800X600-1.jpg" alt="1993 Maule Maule" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'><rect width='400' height='250' fill='%23e0e0e0'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='18' fill='%23888'>No image</text></svg>'"></div>
+  <div class="body">
+    <div class="title">1993 Maule Maule</div>
+    <div class="price">$129,000</div>
+    
+    <div class="specs"><div class="spec"><span>Model</span><span>Maule</span></div></div>
+    <div class="meta">
+      <span class="loc">Madisonville, Texas</span>
+    </div>
+    <div class="footer">
+      <span class="source">aircraftforsale</span>
+      <span class="seen">first seen 2026-06-01</span>
     </div>
   </div>
 </a><a class="card" href="https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&amp;make=MAULE&amp;model=MX-7-180A&amp;listing_id=2434908&amp;s-type=aircraft" target="_blank" rel="noopener"
@@ -1858,6 +2005,7 @@ radio: king kx... more info dustin hancock ogden , ut usa compare save last upda
   const yearMinEl = document.getElementById('year-min');
   const yearMaxEl = document.getElementById('year-max');
   const dropsOnlyEl = document.getElementById('drops-only');
+  const newOnlyEl = document.getElementById('new-only');
 
   let activeMake = '__all__';
   let activeSource = '__all__';
@@ -1886,6 +2034,7 @@ radio: king kx... more info dustin hancock ogden , ut usa compare save last upda
       if (yMin !== null && (year === 0 || year < yMin)) show = false;
       if (yMax !== null && year > yMax) show = false;
       if (dropsOnlyEl.checked && c.dataset.drop !== '1') show = false;
+      if (newOnlyEl.checked && c.dataset.new !== '1') show = false;
 
       c.classList.toggle('hidden', !show);
       if (show) visible.push(c);
@@ -1923,7 +2072,7 @@ radio: king kx... more info dustin hancock ogden , ut usa compare save last upda
     activeSource = b.dataset.source;
     apply();
   }));
-  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl, dropsOnlyEl]) {
+  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl, dropsOnlyEl, newOnlyEl]) {
     el.addEventListener('input', apply);
     el.addEventListener('change', apply);
   }
@@ -1981,7 +2130,7 @@ radio: king kx... more info dustin hancock ogden , ut usa compare save last upda
   // they captured the original. Use a wrapper instead.
   function applyAndMap() { apply(); }
   // Already wired above with `apply`. Add a separate listener to re-render markers on filter change.
-  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl, dropsOnlyEl]) {
+  for (const el of [searchEl, priceMinEl, priceMaxEl, yearMinEl, yearMaxEl, sortEl, dropsOnlyEl, newOnlyEl]) {
     el.addEventListener('input', () => { if (document.body.classList.contains('map-view')) renderMarkers(); });
   }
   document.querySelectorAll('.chip').forEach(b => b.addEventListener('click', () => {
