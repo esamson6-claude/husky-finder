@@ -213,6 +213,10 @@
     {
       "date": "2026-06-10",
       "price": 174938
+    },
+    {
+      "date": "2026-06-11",
+      "price": 244000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2449870&s-type=aircraft": [
@@ -463,6 +467,12 @@
     {
       "date": "2026-06-02",
       "price": 340000
+    }
+  ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MX-7-180&listing_id=2457076&s-type=aircraft": [
+    {
+      "date": "2026-06-11",
+      "price": 155000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MX-7-180B&listing_id=2454359&s-type=aircraft": [
