@@ -195,6 +195,10 @@
     {
       "date": "2026-06-10",
       "price": 133831
+    },
+    {
+      "date": "2026-06-12",
+      "price": 134111
     }
   ],
   "https://www.controller.com/listing/for-sale/256668449/2023-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -448,6 +452,12 @@
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-260C&listing_id=2428277&s-type=aircraft": [
     {
       "date": "2026-05-30",
+      "price": 330000
+    }
+  ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-260C&listing_id=2457211&s-type=aircraft": [
+    {
+      "date": "2026-06-12",
       "price": 330000
     }
   ],
