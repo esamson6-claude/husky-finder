@@ -197,8 +197,8 @@
       "price": 133831
     },
     {
-      "date": "2026-06-12",
-      "price": 134111
+      "date": "2026-06-14",
+      "price": 134083
     }
   ],
   "https://www.controller.com/listing/for-sale/256668449/2023-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -219,14 +219,14 @@
       "price": 174938
     },
     {
-      "date": "2026-06-11",
+      "date": "2026-06-14",
       "price": 244000
     }
   ],
   "https://www.controller.com/listing/for-sale/257321739/1997-maule-mxt7-180-piston-single-aircraft": [
     {
-      "date": "2026-06-13",
-      "price": 127308
+      "date": "2026-06-14",
+      "price": 127259
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2449870&s-type=aircraft": [
@@ -463,7 +463,7 @@
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-260C&listing_id=2457211&s-type=aircraft": [
     {
-      "date": "2026-06-12",
+      "date": "2026-06-14",
       "price": 330000
     }
   ],
@@ -487,7 +487,7 @@
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MX-7-180&listing_id=2457076&s-type=aircraft": [
     {
-      "date": "2026-06-11",
+      "date": "2026-06-14",
       "price": 155000
     }
   ],

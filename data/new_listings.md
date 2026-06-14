@@ -1,18 +1,12 @@
-# New listings — 2026-06-13
+# New listings — 2026-06-14
 
-7 new listings:
+4 new listings:
 
-- **2014 Aviat Husky Husky** — $309,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-601527
-- **2013 Aviat Husky Husky** — $279,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-600604
-- **1999 Aviat Husky Husky** — $179,900 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601343
-- **2002 Aviat Husky Husky** — $155,000 —  — Mountain Home, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/78058-mountain-home-texas-united-states/aviat-a-1b-husky-for-sale-600412
-- **2007 Aviat Husky Husky** — $199,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601342
-- **1993 Maule Maule** — $129,000 —  — Madisonville, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/maule/mxt-7-180/77864-madisonville-texas-united-states/maule-mxt-7-180-for-sale-600622
-- **1997 Maule Mxt7-180** — $127,308 — 1,500 TT — SchwabmÃ¼nchen, Bavaria, Germany — _controller_  
+- **1986 Maule MX-7-180** — $155,000 — 5 SMOH — Kenneth Alexy Washington, MI — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MX-7-180&listing_id=2457076&s-type=aircraft
+- **2000 Maule M-7-260C** — $330,000 — 500 hours — Lakes, WI — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-260C&listing_id=2457211&s-type=aircraft
+- **1975 Maule M-5-210C** — $105,000 —  — Connor OBrien Bend, OR — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-5-210C&listing_id=2447631&s-type=aircraft
+- **1997 Maule Mxt7-180** — $127,259 — 1,500 TT — SchwabmÃ¼nchen, Bavaria, Germany — _controller_  
   https://www.controller.com/listing/for-sale/257321739/1997-maule-mxt7-180-piston-single-aircraft
