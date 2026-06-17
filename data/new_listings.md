@@ -1,52 +1,16 @@
-# New listings — 2026-06-16
+# New listings — 2026-06-17
 
-24 new listings:
+6 new listings:
 
-- **2000 Aviat Husky Husky A-1B-200** — $189,000 —  —  — _aviat_  
+- **2000 Aviat Husky Husky A-1B-180** — $189,000 —  —  — _aviat_  
   https://aviataircraft.com/husky-aircraft-used-inventory/#N71HY
-- **2013 Aviat Husky A-1C-200** — $325,000 — 663 TT — South Saint Paul, Minnesota — _controller_  
-  https://www.controller.com/listing/for-sale/256159869/2013-aviat-husky-a-1c-200-piston-amphibious-slash-floatplanes
-- **2023 Aviat Husky A-1C-200** — $470,000 — 105 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/256668449/2023-aviat-husky-a-1c-200-piston-single-aircraft
-- **2014 Aviat Husky A-1C-180** — $299,000 — 315 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/255199797/2014-aviat-husky-a-1c-180-piston-single-aircraft
-- **2013 Aviat Husky A-1C-180** — $279,000 — 415 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/220797383/2013-aviat-husky-a-1c-180-piston-single-aircraft
-- **2011 Aviat Husky A-1C-180** — $239,000 — 180 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/255957485/2011-aviat-husky-a-1c-180-piston-single-aircraft
-- **2010 Aviat Husky A-1C-180** — $244,000 — 804 TT — Peterborough, Ontario, Canada — _controller_  
-  https://www.controller.com/listing/for-sale/257237119/2010-aviat-husky-a-1c-180-piston-single-aircraft
-- **2007 Aviat Husky A-1B** — $199,000 — 475 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/254084127/2007-aviat-husky-a-1b-piston-single-aircraft
-- **1999 Aviat Husky A-1B** — $179,900 — 1,675 TT — Mcallen, Texas — _controller_  
-  https://www.controller.com/listing/for-sale/254195533/1999-aviat-husky-a-1b-piston-single-aircraft
-- **2012 Aviat Husky A-1C-200** — $329,000 — 410 TT — Tupelo, Mississippi — _controller_  
-  https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft
-- **2019 Aviat Husky A-1C-180** — price n/a — 150 TT — Brookings, South Dakota — _controller_  
-  https://www.controller.com/listing/for-sale/246680021/2019-aviat-husky-a-1c-180-piston-single-aircraft
-- **2013 Aviat Husky A-1C-180** — $245,000 — 233 TT — Grand Junction, Colorado — _controller_  
-  https://www.controller.com/listing/for-sale/255053795/2013-aviat-husky-a-1c-180-piston-single-aircraft
-- **2025 Aviat Husky A-1C-200** — price n/a — 0 TT — Orlando, Florida — _controller_  
-  https://www.controller.com/listing/for-sale/249371347/2025-aviat-husky-a-1c-200-piston-single-aircraft
-- **2025 Aviat Husky A-1C-200** — price n/a — 0 TT — Stayner, Ontario, Canada — _controller_  
-  https://www.controller.com/listing/for-sale/247908261/2025-aviat-husky-a-1c-200-piston-single-aircraft
-- **2025 Aviat Husky A-1C-200** — price n/a — 122 TT — Hugo, Oklahoma — _controller_  
-  https://www.controller.com/listing/for-sale/245530899/2025-aviat-husky-a-1c-200-piston-single-aircraft
-- **2026 Aviat Husky A-1C-200** — price n/a — 1 TT — Middleton, Wisconsin — _controller_  
-  https://www.controller.com/listing/for-sale/257078389/2026-aviat-husky-a-1c-200-piston-single-aircraft
-- **2026 Aviat Husky A-1C-200** — price n/a — 0 TT — Belgrade, Montana — _controller_  
-  https://www.controller.com/listing/for-sale/252216853/2026-aviat-husky-a-1c-200-piston-single-aircraft
-- **2026 Aviat Husky A-1C-200** — price n/a — 1 TT — Morgan, Utah — _controller_  
-  https://www.controller.com/listing/for-sale/251582831/2026-aviat-husky-a-1c-200-piston-single-aircraft
+- **2023 Aviat Husky Husky** — $470,000 —  — Mcallen, Texas — _aircraftforsale_  
+  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-200-husky/mcallen-texas-united-states/aviat-a-1c-200-husky-for-sale-601635
+- **2011 Aviat Husky Husky** — $239,000 —  — Mcallen, Texas — _aircraftforsale_  
+  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-601634
+- **2026 Aviat Husky HUSKY A-1C** — price n/a —  — Mike Goulian Afton, WY — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1C&listing_id=2452086&s-type=aircraft
 - **2026 Aviat Husky A-1C-180** — price n/a — 1 TT — Plymouth, Massachusetts — _controller_  
   https://www.controller.com/listing/for-sale/252440995/2026-aviat-husky-a-1c-180-piston-single-aircraft
-- **2025 Aviat Husky A-1C-180** — $525,000 — 35 TT — Dayton, Ohio — _controller_  
-  https://www.controller.com/listing/for-sale/256460209/2025-aviat-husky-a-1c-180-piston-single-aircraft
-- **2021 Aviat Husky A-1C-180** — $325,000 — 95 TT — Dudley, Missouri — _controller_  
-  https://www.controller.com/listing/for-sale/237851237/2021-aviat-husky-a-1c-180-piston-single-aircraft
-- **2019 Aviat Husky A-1C-180** — $365,000 — 168 TT — Middleton, Wisconsin — _controller_  
-  https://www.controller.com/listing/for-sale/236659995/2019-aviat-husky-a-1c-180-piston-single-aircraft
-- **2007 Aviat Husky A-1B** — $209,000 — 294 TT — Middleton, Wisconsin — _controller_  
-  https://www.controller.com/listing/for-sale/250363283/2007-aviat-husky-a-1b-piston-single-aircraft
-- **2000 Aviat Husky A-1B** — $133,982 — 420 TT — London, London, United Kingdom — _controller_  
-  https://www.controller.com/listing/for-sale/256480029/2000-aviat-husky-a-1b-piston-single-aircraft
+- **2006 Maule M-4-180V** — $120,000 —  — Inc El Cajon, CA — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-4-180V&listing_id=2453446&s-type=aircraft
