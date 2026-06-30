@@ -1,6 +1,6 @@
-# New listings — 2026-06-29
+# New listings — 2026-06-30
 
 1 new listings:
 
-- **2001 Maule M-7-235C** — $179,000 — 9 Hours — Brian Robinson Concord, NH — _trade-a-plane_  
-  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-235C&listing_id=2456704&s-type=aircraft
+- **2009 Aviat Husky A-1C-200** — $315,000 — 382 TT — Wasilla, Alaska — _controller_  
+  https://www.controller.com/listing/for-sale/257802417/2009-aviat-husky-a-1c-200-piston-single-aircraft
