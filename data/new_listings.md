@@ -1,6 +1,6 @@
-# New listings — 2026-06-30
+# New listings — 2026-07-01
 
 1 new listings:
 
-- **2009 Aviat Husky A-1C-200** — $315,000 — 382 TT — Wasilla, Alaska — _controller_  
-  https://www.controller.com/listing/for-sale/257802417/2009-aviat-husky-a-1c-200-piston-single-aircraft
+- **1996 Maule MXT-7-180A** — $131,500 —  —  — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MXT-7-180A&listing_id=2457844&s-type=aircraft
