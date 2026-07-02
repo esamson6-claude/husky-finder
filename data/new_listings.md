@@ -1,6 +1,6 @@
-# New listings — 2026-07-01
+# New listings — 2026-07-02
 
 1 new listings:
 
-- **1996 Maule MXT-7-180A** — $131,500 —  —  — _trade-a-plane_  
-  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MXT-7-180A&listing_id=2457844&s-type=aircraft
+- **2006 Aviat Husky A-1B** — $224,900 — 329 TT — Anchorage, Alaska — _controller_  
+  https://www.controller.com/listing/for-sale/257882169/2006-aviat-husky-a-1b-piston-single-aircraft
