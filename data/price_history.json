@@ -75,6 +75,12 @@
       "price": 279000
     }
   ],
+  "https://www.controller.com/listing/for-sale/231335311/2004-aviat-husky-a-1b-piston-single-aircraft": [
+    {
+      "date": "2026-07-08",
+      "price": 199000
+    }
+  ],
   "https://www.controller.com/listing/for-sale/236659995/2019-aviat-husky-a-1c-180-piston-single-aircraft": [
     {
       "date": "2026-05-30",
@@ -151,6 +157,10 @@
     {
       "date": "2026-05-30",
       "price": 239000
+    },
+    {
+      "date": "2026-07-08",
+      "price": 225000
     }
   ],
   "https://www.controller.com/listing/for-sale/256159869/2013-aviat-husky-a-1c-200-piston-amphibious-slash-floatplanes": [
@@ -271,6 +281,10 @@
     {
       "date": "2026-05-30",
       "price": 470000
+    },
+    {
+      "date": "2026-07-08",
+      "price": 459000
     }
   ],
   "https://www.controller.com/listing/for-sale/256855579/2003-aviat-husky-a-1b-piston-amphibious-slash-floatplanes": [
@@ -377,6 +391,10 @@
     {
       "date": "2026-07-07",
       "price": 125808
+    },
+    {
+      "date": "2026-07-08",
+      "price": 125593
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
