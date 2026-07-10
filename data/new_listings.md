@@ -1,20 +1,10 @@
-# New listings — 2026-07-09
+# New listings — 2026-07-10
 
-8 new listings:
+3 new listings:
 
-- **2014 Aviat Husky Husky** — $309,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-601527
-- **1999 Aviat Husky Husky** — $179,900 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601343
-- **2023 Aviat Husky Husky** — $470,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-200-husky/mcallen-texas-united-states/aviat-a-1c-200-husky-for-sale-601635
-- **2013 Aviat Husky Husky** — $279,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-600604
-- **2007 Aviat Husky Husky** — $199,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1b-husky/mcallen-texas-united-states/aviat-a-1b-husky-for-sale-601342
-- **2011 Aviat Husky Husky** — $239,000 —  — Mcallen, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/aviat/a-1c-180-husky/mcallen-texas-united-states/aviat-a-1c-180-husky-for-sale-601634
-- **2004 Aviat Husky HUSKY A-1B** — $199,000 —  — McAllen, TX — _trade-a-plane_  
-  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2458104&s-type=aircraft
-- **1993 Maule Maule** — $129,000 —  — Madisonville, Texas — _aircraftforsale_  
-  https://aircraftforsale.com/aircraft/single-engine-piston/maule/mxt-7-180/77864-madisonville-texas-united-states/maule-mxt-7-180-for-sale-600622
+- **2023 Aviat Husky HUSKY A-1C** — $459,000 —  — TXi, GI — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1C&listing_id=2447550&s-type=aircraft
+- **1972 Maule M-4-220C** — $90,000 —  — Mark Thiem Tampa, FL — _trade-a-plane_  
+  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-4-220C&listing_id=2458144&s-type=aircraft
+- **2002 Maule Mxt7-180** — price n/a — 1,446 TT — Mielec, Pk, Poland — _controller_  
+  https://www.controller.com/listing/for-sale/258091887/2002-maule-mxt7-180-piston-single-aircraft
