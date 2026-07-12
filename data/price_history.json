@@ -407,6 +407,10 @@
     {
       "date": "2026-07-11",
       "price": 125608
+    },
+    {
+      "date": "2026-07-12",
+      "price": 125570
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -573,6 +577,10 @@
     {
       "date": "2026-05-30",
       "price": 470000
+    },
+    {
+      "date": "2026-07-12",
+      "price": 459000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-4-180V&listing_id=2453446&s-type=aircraft": [
