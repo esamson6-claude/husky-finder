@@ -212,6 +212,9 @@
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-5-235C&listing_id=2456978&s-type=aircraft": {
     "location": "West Simsbury, CT"
   },
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-235&listing_id=2458365&s-type=aircraft": {
+    "location": null
+  },
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-235B&listing_id=2447607&s-type=aircraft": {
     "location": null
   },
