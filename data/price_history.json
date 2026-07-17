@@ -433,6 +433,10 @@
     {
       "date": "2026-07-16",
       "price": 126130
+    },
+    {
+      "date": "2026-07-17",
+      "price": 125805
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -735,6 +739,10 @@
     {
       "date": "2026-06-05",
       "price": 238500
+    },
+    {
+      "date": "2026-07-17",
+      "price": 224500
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-7-260&listing_id=2437807&s-type=aircraft": [
