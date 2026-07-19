@@ -441,6 +441,10 @@
     {
       "date": "2026-07-18",
       "price": 125839
+    },
+    {
+      "date": "2026-07-19",
+      "price": 125807
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -815,6 +819,10 @@
     {
       "date": "2026-05-30",
       "price": 180000
+    },
+    {
+      "date": "2026-07-19",
+      "price": 170000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MX-7-180C&listing_id=2457606&s-type=aircraft": [
