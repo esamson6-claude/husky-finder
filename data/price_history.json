@@ -103,6 +103,12 @@
       "price": 310000
     }
   ],
+  "https://www.controller.com/listing/for-sale/245855239/1986-maule-m5-180c-piston-single-aircraft": [
+    {
+      "date": "2026-07-30",
+      "price": 103071
+    }
+  ],
   "https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft": [
     {
       "date": "2026-05-30",
@@ -135,6 +141,10 @@
     {
       "date": "2026-05-30",
       "price": 179900
+    },
+    {
+      "date": "2026-07-30",
+      "price": 169900
     }
   ],
   "https://www.controller.com/listing/for-sale/255053795/2013-aviat-husky-a-1c-180-piston-single-aircraft": [
@@ -481,6 +491,10 @@
     {
       "date": "2026-07-29",
       "price": 125428
+    },
+    {
+      "date": "2026-07-30",
+      "price": 125976
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [

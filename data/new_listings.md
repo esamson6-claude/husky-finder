@@ -1,6 +1,10 @@
-# New listings — 2026-07-29
+# New listings — 2026-07-30
 
-1 new listings:
+3 new listings:
 
-- **2021 Maule M-9** — $425,000 —  — Peterson Pawleys Island, SC — _trade-a-plane_  
-  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-9&listing_id=2458585&s-type=aircraft
+- **2002 Maule Mxt7-180** — price n/a — 1,446 TT — Mielec, Pk, Poland — _controller_  
+  https://www.controller.com/listing/for-sale/258091887/2002-maule-mxt7-180-piston-single-aircraft
+- **1994 Maule Mx7-180B** — price n/a — 2,337 TT — Adelaide, South Australia, Australia — _controller_  
+  https://www.controller.com/listing/for-sale/244192851/1994-maule-mx7-180b-piston-single-aircraft
+- **1986 Maule M5-180C** — $103,071 — 1,615 TT — Goslar, Germany — _controller_  
+  https://www.controller.com/listing/for-sale/245855239/1986-maule-m5-180c-piston-single-aircraft
