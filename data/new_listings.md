@@ -1,6 +1,10 @@
-# New listings — 2026-08-01
+# New listings — 2026-08-02
 
-1 new listings:
+3 new listings:
 
-- **2018 Aviat Husky HUSKY A-1C** — $365,000 — 1283 TT — Samuel Barth Johnstown, NY — _trade-a-plane_  
-  https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1C&listing_id=2458924&s-type=aircraft
+- **2019 Aviat Husky Husky A-1C-180** — $365,000 — 168 TT — C29 — _aviat_  
+  https://aviataircraft.com/husky-aircraft-used-inventory/#N18AH
+- **2007 Aviat Husky Husky A-1C-180** — $209,000 —  —  — _aviat_  
+  https://aviataircraft.com/husky-aircraft-used-inventory/#N777HY
+- **2000 Aviat Husky Husky A-1B-180** — $189,000 —  —  — _aviat_  
+  https://aviataircraft.com/husky-aircraft-used-inventory/#N71HY
