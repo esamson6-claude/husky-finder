@@ -127,6 +127,10 @@
     {
       "date": "2026-08-05",
       "price": 103790
+    },
+    {
+      "date": "2026-08-07",
+      "price": 103718
     }
   ],
   "https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -535,6 +539,10 @@
     {
       "date": "2026-08-05",
       "price": 126854
+    },
+    {
+      "date": "2026-08-07",
+      "price": 126767
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -601,6 +609,10 @@
     {
       "date": "2026-07-02",
       "price": 179000
+    },
+    {
+      "date": "2026-08-07",
+      "price": 175000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2454882&s-type=aircraft": [
@@ -783,6 +795,10 @@
     {
       "date": "2026-05-30",
       "price": 109999
+    },
+    {
+      "date": "2026-08-07",
+      "price": 101000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-5-180C&listing_id=2450269&s-type=aircraft": [
@@ -795,6 +811,10 @@
     {
       "date": "2026-05-30",
       "price": 105000
+    },
+    {
+      "date": "2026-08-07",
+      "price": 115000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-5-235C&listing_id=2427304&s-type=aircraft": [
@@ -917,6 +937,12 @@
       "price": 425000
     }
   ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MT-7-235&listing_id=2459167&s-type=aircraft": [
+    {
+      "date": "2026-08-07",
+      "price": 228500
+    }
+  ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MT-7-260&listing_id=2431556&s-type=aircraft": [
     {
       "date": "2026-05-30",
@@ -1013,6 +1039,12 @@
     {
       "date": "2026-07-20",
       "price": 134900
+    }
+  ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MXT-7-180A&listing_id=2459115&s-type=aircraft": [
+    {
+      "date": "2026-08-07",
+      "price": 125000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=MXT-7-180B&listing_id=2456215&s-type=aircraft": [
