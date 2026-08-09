@@ -135,6 +135,10 @@
     {
       "date": "2026-08-08",
       "price": 104050
+    },
+    {
+      "date": "2026-08-09",
+      "price": 104013
     }
   ],
   "https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -551,6 +555,10 @@
     {
       "date": "2026-08-08",
       "price": 127172
+    },
+    {
+      "date": "2026-08-09",
+      "price": 127127
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -579,6 +587,12 @@
     {
       "date": "2026-07-24",
       "price": 450000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/259182751/2025-aviat-husky-a-1c-200-piston-single-aircraft": [
+    {
+      "date": "2026-08-09",
+      "price": 529000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2449870&s-type=aircraft": [
@@ -773,6 +787,12 @@
     {
       "date": "2026-08-01",
       "price": 365000
+    }
+  ],
+  "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1C&listing_id=2459201&s-type=aircraft": [
+    {
+      "date": "2026-08-09",
+      "price": 529000
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=MAULE&model=M-4-180V&listing_id=2453446&s-type=aircraft": [
