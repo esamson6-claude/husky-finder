@@ -173,6 +173,10 @@
     {
       "date": "2026-08-18",
       "price": 104136
+    },
+    {
+      "date": "2026-08-19",
+      "price": 104275
     }
   ],
   "https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft": [
@@ -621,6 +625,10 @@
     {
       "date": "2026-08-18",
       "price": 127277
+    },
+    {
+      "date": "2026-08-19",
+      "price": 127447
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -659,6 +667,12 @@
     {
       "date": "2026-08-09",
       "price": 529000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/259543283/2018-aviat-husky-a-1c-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-19",
+      "price": 318500
     }
   ],
   "https://www.trade-a-plane.com/search?category_level1=Single+Engine+Piston&make=AVIAT&model=HUSKY+A-1B&listing_id=2449870&s-type=aircraft": [

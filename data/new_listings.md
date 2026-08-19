@@ -1,3 +1,6 @@
-# New listings — 2026-08-18
+# New listings — 2026-08-19
 
-_No new listings since last run._
+1 new listings:
+
+- **2018 Aviat Husky A-1C-180** — $318,500 — 724 TT — Bellevue, Washington — _controller_  
+  https://www.controller.com/listing/for-sale/259543283/2018-aviat-husky-a-1c-180-piston-single-aircraft
