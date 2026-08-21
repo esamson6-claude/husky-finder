@@ -81,10 +81,22 @@
       "price": 279000
     }
   ],
+  "https://www.controller.com/listing/for-sale/231335311/2004-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 199000
+    }
+  ],
   "https://www.controller.com/listing/for-sale/231335311/2004-aviat-husky-a-1b-piston-single-aircraft": [
     {
       "date": "2026-07-08",
       "price": 199000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/235218687/2005-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 195000
     }
   ],
   "https://www.controller.com/listing/for-sale/235218687/2005-aviat-husky-a-1b-piston-single-aircraft": [
@@ -181,12 +193,26 @@
     {
       "date": "2026-08-20",
       "price": 105075
+    },
+    {
+      "date": "2026-08-21",
+      "price": 105234
     }
   ],
   "https://www.controller.com/listing/for-sale/249384829/2012-aviat-husky-a-1c-200-piston-single-aircraft": [
     {
       "date": "2026-05-30",
       "price": 329000
+    },
+    {
+      "date": "2026-08-21",
+      "price": 309000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/250363283/2007-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 209000
     }
   ],
   "https://www.controller.com/listing/for-sale/250363283/2007-aviat-husky-a-1b-piston-single-aircraft": [
@@ -209,6 +235,12 @@
     {
       "date": "2026-05-30",
       "price": 199000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/254195533/1999-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 169900
     }
   ],
   "https://www.controller.com/listing/for-sale/254195533/1999-aviat-husky-a-1b-piston-single-aircraft": [
@@ -637,6 +669,16 @@
     {
       "date": "2026-08-20",
       "price": 128425
+    },
+    {
+      "date": "2026-08-21",
+      "price": 128619
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 189000
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-piston-single-aircraft": [
@@ -649,6 +691,12 @@
     {
       "date": "2026-06-30",
       "price": 315000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/257882169/2006-aviat-husky-a-1b-180-piston-single-aircraft": [
+    {
+      "date": "2026-08-21",
+      "price": 194000
     }
   ],
   "https://www.controller.com/listing/for-sale/257882169/2006-aviat-husky-a-1b-piston-single-aircraft": [
