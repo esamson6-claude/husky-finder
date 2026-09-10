@@ -1,3 +1,3 @@
-# New listings — 2026-09-09
+# New listings — 2026-09-10
 
 _No new listings since last run._
