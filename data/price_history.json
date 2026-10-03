@@ -933,6 +933,10 @@
     {
       "date": "2026-10-02",
       "price": 123767
+    },
+    {
+      "date": "2026-10-03",
+      "price": 123832
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-180-piston-single-aircraft": [
@@ -1041,6 +1045,10 @@
     {
       "date": "2026-10-02",
       "price": 114421
+    },
+    {
+      "date": "2026-10-03",
+      "price": 114559
     }
   ],
   "https://www.controller.com/listing/for-sale/260648155/1999-maule-m7-235c-piston-single-aircraft": [
