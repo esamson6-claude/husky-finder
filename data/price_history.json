@@ -397,6 +397,12 @@
       "price": 225000
     }
   ],
+  "https://www.controller.com/listing/for-sale/255976213/2011-aviat-husky-a-1c-180-piston-single-aircraft": [
+    {
+      "date": "2026-10-08",
+      "price": 239900
+    }
+  ],
   "https://www.controller.com/listing/for-sale/256159869/2013-aviat-husky-a-1c-200-piston-amphibious-slash-floatplanes": [
     {
       "date": "2026-05-30",
@@ -953,6 +959,10 @@
     {
       "date": "2026-10-07",
       "price": 123573
+    },
+    {
+      "date": "2026-10-08",
+      "price": 123272
     }
   ],
   "https://www.controller.com/listing/for-sale/257636257/2000-aviat-husky-a-1b-180-piston-single-aircraft": [
@@ -1081,6 +1091,10 @@
     {
       "date": "2026-10-07",
       "price": 115011
+    },
+    {
+      "date": "2026-10-08",
+      "price": 114780
     }
   ],
   "https://www.controller.com/listing/for-sale/260648155/1999-maule-m7-235c-piston-single-aircraft": [
