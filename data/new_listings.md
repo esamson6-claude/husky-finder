@@ -1,6 +1,6 @@
-# New listings — 2026-10-16
+# New listings — 2026-10-17
 
 1 new listings:
 
-- **1989 Maule Mx7-180** — $104,199 — 1,708 TT — Bomaderry, New South Wales, Australia — _controller_  
-  https://www.controller.com/listing/for-sale/261411695/1989-maule-mx7-180-piston-single-aircraft
+- **1995 Maule Mx7-180A** — $139,900 — 1,230 TT — Pembroke, Georgia — _controller_  
+  https://www.controller.com/listing/for-sale/261434147/1995-maule-mx7-180a-piston-single-aircraft
