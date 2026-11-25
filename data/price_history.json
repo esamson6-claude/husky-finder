@@ -53,6 +53,12 @@
       "price": 365000
     }
   ],
+  "https://aviataircraft.com/husky-aircraft-used-inventory/#N52RF": [
+    {
+      "date": "2026-11-25",
+      "price": 480000
+    }
+  ],
   "https://aviataircraft.com/husky-aircraft-used-inventory/#N579LM": [
     {
       "date": "2026-08-10",
@@ -77,6 +83,12 @@
     {
       "date": "2026-06-04",
       "price": 209000
+    }
+  ],
+  "https://www.controller.com/listing/for-sale/216621537/2014-aviat-husky-a-1c-200-piston-single-aircraft": [
+    {
+      "date": "2026-11-25",
+      "price": 249000
     }
   ],
   "https://www.controller.com/listing/for-sale/220797383/2013-aviat-husky-a-1c-180-piston-single-aircraft": [
@@ -1519,6 +1531,10 @@
     {
       "date": "2026-11-24",
       "price": 599917
+    },
+    {
+      "date": "2026-11-25",
+      "price": 601679
     }
   ],
   "https://www.controller.com/listing/for-sale/262120423/2010-aviat-husky-a-1c-180-piston-single-aircraft": [
